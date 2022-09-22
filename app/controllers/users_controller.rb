@@ -25,5 +25,28 @@ class UsersController < ApplicationController
         end 
     end 
 
+    get '/users/:id/edit' do 
+    @user = User.find_by(id: params[:id])
+    erb :'users/edit'
+    end 
+        
+    patch '/users/:id/edit' do 
+    @user = User.find_by(id: params[:id])
+    @user.update(params[:user])
+    redirect "/users/#{@user.id}"
+    end
+    
+    delete '/users/:id/delete' do 
+    @user = User.find_by(id: params[:id])
+    @user.destroy
+    redirect "/users"
+    end
+
+
+
+
+
+
+
 end 
 
