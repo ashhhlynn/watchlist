@@ -3,7 +3,11 @@
 <h4>Stream on <%= @watching.streaming_location %></h4>
 <h4><%= @watching.adds.count %> Adds</h4>
 
-
+<% if logged_in? && current_user.id == @watching.creator_id %>
+<form method='get' action='/watchings/<%=@watching.id%>/edit'>
+<input type="submit" value="Edit or Delete <%=@watching.title%>">
+</form>
+<% elsif logged_in? %>
 <% if @add %>
 <form method='post' action='/adds/<%= @add.id %>'>
 <input type="hidden" name="_method" value="delete">
@@ -30,9 +34,7 @@
 <input type="submit" name="add[seen]" value="Mark as Watched"><br>
 </form>
 <% end %>
-
-<% if logged_in? && current_user.id == @watching.creator_id %>
-<form method='get' action='/watchings/<%=@watching.id%>/edit'>
-<input type="submit" value="Edit or Delete <%=@watching.title%>">
-</form>
+<% else %>
+Login to add to watchlist!
 <% end %>
+

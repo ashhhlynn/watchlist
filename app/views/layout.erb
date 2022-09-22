@@ -21,7 +21,20 @@
       <footer class="branding">
         <small>&copy; 2022 <strong>Watchlist</strong></small>
       </footer>
-    </div>
+
+<footer >
+<a button type="button" href="/users">Browse Users</a> <br>
+<a button type="button" href="/watchings">Browse Movies and Shows</a> <br>
+<% if logged_in? %>
+<% @user = current_user %>
+<a button type="button" href="/users/<%= @user.id %>">Your Watchlist</a> <br>
+<a button type="button" href="/users/<%= @user.id %>/edit">Edit or Delete My Account</a> <br>
+<a button type="button" href="/logout">Logout</a> <br>
+<% else %>
+<a button type="button" href="/signup">Signup</a> <br>
+<a button type="button" href="/login">Login</a> <br>
+<% end %>
+</footer>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
