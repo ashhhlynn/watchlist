@@ -13,6 +13,13 @@ class UsersController < ApplicationController
             erb :'users/login'
         end
         end
+
+        get '/logout' do 
+            if logged_in?
+            session.clear
+            redirect "/"
+            end
+        end
     
     get '/users' do 
     @users = User.all 
@@ -36,8 +43,9 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect "/users/#{@user.id}"
         end
+    else
         erb :'users/signup'
-        end 
+    end 
     end 
 
     get '/users/:id/edit' do 

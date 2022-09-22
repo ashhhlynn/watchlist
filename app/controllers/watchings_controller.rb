@@ -5,22 +5,28 @@ get '/watchings' do
     erb :'watchings/index'
 end    
 
+get '/watchings/new' do 
+    if logged_in?
+    erb :'watchings/new'
+    else 
+    redirect '/watchings'
+end
+end 
+
+post '/watchings' do
+    @watching = Watching.new(params[:watching])
+    @watching.creator_id = current_user.id
+    @watching.save #'do I need that?'
+    redirect '/watchings'
+end 
+
+
+
 get '/watchings/:id' do 
     @watching = Watching.find_by(id: params[:id])
     erb :'watchings/show'
 end
 
-get '/watchings/new' do 
-    erb :'watchings/new'
-end
-
-post '/watchings' do
-  
-        @watching = Watching.new(params[:watching])
-        @watching.creator_id = current_user.id
-        @watching.save #'do I need that?'
-        redirect '/watchings'
-    end 
 
     get '/watchings/:id/edit' do
     @watching = Watching.find_by(id: params[:id])
