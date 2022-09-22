@@ -9,6 +9,7 @@
   html, body {
     height: 100%;
     width: 100%;
+    text-align: center;
   }
 
   /* --- Welcome Page Styles --- */
@@ -17,6 +18,8 @@
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
+    text-align: center;
+
   }
 
   .wrapper {
@@ -33,6 +36,7 @@
   h1 {
     font-size: 36px;
     line-height: 54px;
+    text-align: center;
   }
 
   h2 {
@@ -40,11 +44,13 @@
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
+    text-align: center;
   }
 
   h3 {
     font-size: 18px;
     line-height: 36px;
+    text-align: center;
   }
 
   p {
@@ -53,6 +59,7 @@
 
   .main {
     overflow: hidden;
+    text-align: center;
   }
 
   .content {
@@ -83,6 +90,15 @@
   }
 }
 
+footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  text-align: center;
+  float: center;
+}
+
+
+
 @media screen and (max-width: 600px) {
   .wrapper {
     -moz-box-shadow: none;
@@ -106,10 +122,16 @@
   h1 {
     font-size: 24px;
     line-height: 36px;
+    text-align: center;
+
   }
 
   h2 {
     font-size: 18px;
     line-height: 24px;
+    text-align: center;
+
   }
+
+ 
 }

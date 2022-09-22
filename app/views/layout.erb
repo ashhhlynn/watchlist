@@ -23,16 +23,17 @@
       </footer>
 
 <footer >
-<a button type="button" href="/users">Browse Users</a> <br>
-<a button type="button" href="/watchings">Browse Movies and Shows</a> <br>
+<a button type="button" href="/">Home</a>
+<a button type="button" href="/users">Browse Users</a>
+<a button type="button" href="/watchings">Browse Movies and Shows</a> 
 <% if logged_in? %>
 <% @user = current_user %>
-<a button type="button" href="/users/<%= @user.id %>">Your Watchlist</a> <br>
-<a button type="button" href="/users/<%= @user.id %>/edit">Edit or Delete My Account</a> <br>
-<a button type="button" href="/logout">Logout</a> <br>
+<a button type="button" href="/users/<%= @user.id %>">Your Watchlist</a>
+<a button type="button" href="/users/<%= @user.id %>/edit">Edit or Delete My Account</a> 
+<a button type="button" href="/logout">Logout</a> 
 <% else %>
-<a button type="button" href="/signup">Signup</a> <br>
-<a button type="button" href="/login">Login</a> <br>
+<a button type="button" href="/signup">Signup</a>
+<a button type="button" href="/login">Login</a> 
 <% end %>
 </footer>
 
