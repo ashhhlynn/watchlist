@@ -27,7 +27,8 @@ end
 
 get '/watchings/:id' do 
 @watching = Watching.find_by(id: params[:id])
-    erb :'watchings/show'
+@add = @watching.adds.find_by(user_id: current_user.id)
+erb :'watchings/show'
 end
 
 

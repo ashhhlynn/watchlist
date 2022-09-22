@@ -1,0 +1,38 @@
+<h2> <%= @watching.title %> </h2>
+<img src="<%= @watching.image_url %>"><br>
+<h4>Stream on <%= @watching.streaming_location %></h4>
+<h4><%= @watching.adds.count %> Adds</h4>
+
+
+<% if @add %>
+<form method='post' action='/adds/<%= @add.id %>'>
+<input type="hidden" name="_method" value="delete">
+<input type="submit" value="Remove From Watchlist">
+</form>
+<% if @add.seen %>
+<form method='post' action='/adds/<%= @add.id %>'>
+<input type="hidden" name="_method" value="patch">
+<input type="hidden" name="add[seen]" value="0">
+<input type="submit" value="Mark as To Watch">
+</form>
+<% else %>
+<form method='post' action='/adds/<%= @add.id %>'>
+<input type="hidden" name="_method" value="patch">
+<input type="hidden" name="add[seen]" value="1">
+<input type="submit" value="Mark as Watched">
+</form>
+<% end %>
+<% else %>
+<form method="post" action="/adds">
+<input type="hidden" name="add[watching_id]" value="<%= @watching.id.to_i %>">
+<input type="hidden" name="add[user_id]" value="<%= current_user.id.to_i %>">
+<input type="submit" name="!add[seen]" value="Mark as To Watch"><br>
+<input type="submit" name="add[seen]" value="Mark as Watched"><br>
+</form>
+<% end %>
+
+<% if logged_in? && current_user.id == @watching.creator_id %>
+<form method='get' action='/watchings/<%=@watching.id%>/edit'>
+<input type="submit" value="Edit or Delete <%=@watching.title%>">
+</form>
+<% end %>
