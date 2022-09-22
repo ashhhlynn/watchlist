@@ -32,7 +32,7 @@ erb :'watchings/show'
 end 
 
 
-    get '/watchings/:id/edit' do
+get '/watchings/:id/edit' do
     @watching = Watching.find_by(id: params[:id])
     if @watching.creator_id == current_user.id
     erb :'watchings/edit'
