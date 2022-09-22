@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
     get '/login' do 
+    if !logged_in? 
     erb :'users/login'
-    end
+    else 
+    redirect "/users/#{current_user.id}"
+    end 
+    end 
         
         post '/login' do 
         @user = User.find_by(username: params[:username])
@@ -15,15 +19,14 @@ class UsersController < ApplicationController
         end
 
         get '/logout' do 
-            if logged_in?
-            session.clear
-            redirect "/"
+        if logged_in?
+        session.clear
+        redirect "/"
             end
         end
     
     get '/users' do 
     @users = User.all 
-    @user = current_user
     erb :'users/index'
     end
 
@@ -50,7 +53,11 @@ class UsersController < ApplicationController
 
     get '/users/:id/edit' do 
     @user = User.find_by(id: params[:id])
+    if current_user == @user
     erb :'users/edit'
+    else 
+    redirect "/users"
+    end 
     end 
         
     patch '/users/:id/edit' do 
@@ -61,8 +68,10 @@ class UsersController < ApplicationController
     
     delete '/users/:id/delete' do 
     @user = User.find_by(id: params[:id])
+    if current_user == @user
     @user.destroy
     redirect "/users"
+    end 
     end
 
 

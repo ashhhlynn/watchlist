@@ -14,25 +14,32 @@ end
 end 
 
 post '/watchings' do
-    @watching = Watching.new(params[:watching])
+if params[:watching][:title] == "" || params[:watching][:image_url] == "" || params[:watching][:movie_or_show] == "" || params[:watching][:streaming_location] == ""
+erb :'watchings/new'
+else 
+    @watching = Watching.new(params[:watching]) #' new or create?'
     @watching.creator_id = current_user.id
     @watching.save #'do I need that?'
     redirect '/watchings'
 end 
-
+end 
 
 
 get '/watchings/:id' do 
-    @watching = Watching.find_by(id: params[:id])
+@watching = Watching.find_by(id: params[:id])
     erb :'watchings/show'
 end
 
 
     get '/watchings/:id/edit' do
     @watching = Watching.find_by(id: params[:id])
+    if @watching.creator_id == current_user.id
     erb :'watchings/edit'
+    else 
+    redirect '/watchings'
     end   
-        
+    end 
+
     patch '/watchings/:id' do
     @watching = Watching.find_by(id: params[:id])
     if params[:watching][:title] != "" && params[:watching][:image_url] != "" && params[:watching][:movie_or_show] != "" && params[:watching][:streaming_location] != ""
@@ -45,8 +52,10 @@ end
         
     delete '/watchings/:id/delete' do
     @watching = Watching.find_by(id: params[:id])
+    if @watching.creator_id == current_user.id
     @watching.destroy
     redirect to '/watchings'
     end    
+end 
 
 end 
