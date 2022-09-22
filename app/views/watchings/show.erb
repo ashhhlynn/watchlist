@@ -7,7 +7,9 @@
 <form method='get' action='/watchings/<%=@watching.id%>/edit'>
 <input type="submit" value="Edit or Delete <%=@watching.title%>">
 </form>
-<% elsif logged_in? %>
+<% end %>
+
+<% if current_user %>
 <% if @add %>
 <form method='post' action='/adds/<%= @add.id %>'>
 <input type="hidden" name="_method" value="delete">
