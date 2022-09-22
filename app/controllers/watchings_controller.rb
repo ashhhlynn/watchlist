@@ -12,17 +12,14 @@ end
 
 get '/watchings/new' do 
     erb :'watchings/new'
-    end
+end
 
 post '/watchings' do
-    if params[:watching][:title] == "" || params[:watching][:image_url] == "" || params[:watching][:movie_or_show] == "" || params[:watching][:streaming_location] == ""
-        erb :'watchings/new'
-    else     
-        @watching = Watching.create(params[:watching])
+  
+        @watching = Watching.new(params[:watching])
         @watching.creator_id = current_user.id
         @watching.save #'do I need that?'
         redirect '/watchings'
-    end 
     end 
 
     get '/watchings/:id/edit' do

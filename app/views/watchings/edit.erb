@@ -1,0 +1,18 @@
+<h2>Edit Movie or Show</h2>
+<form method="post" action="/watchings/<%=@watching.id%>">
+<lable for="title">Title:</label><br>
+<input type="text" name="watching[title]" value="<%=@watching.title%>"><br><br>
+<lable for="movie_or_show">Movie or Show:</label><br>
+<input type="text" name="watching[movie_or_show]" value="<%=@watching.movie_or_show%>"><br><br>
+<lable for="image_url">Image URL:</label><br>
+<input type="text" name="watching[image_url]" value="<%=@watching.image_url%>"><br><br>
+<lable for="streaming_location">Streaming Location:</label><br>
+<input type="text" name="watching[streaming_location]" value="<%=@watching.streaming_location%>"><br><br>
+<input type="hidden" name="_method" value="patch">
+<input type="submit" value="Submit">
+</form>
+
+<form action="/watchings/<%= @watching.id %>/delete" method="post">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" id="submit" value="Delete Show">
+</form>
