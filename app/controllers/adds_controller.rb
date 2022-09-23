@@ -15,9 +15,10 @@ class AddsController < ApplicationController
         
     delete '/adds/:id' do
     @add = Add.find_by(id: params[:id])  
-    @add.user_id == current_user.id #'?'
+    if @add.user_id == current_user.id 
     @add.destroy
     redirect "/users/#{current_user.id}"
+    end 
     end 
 
 

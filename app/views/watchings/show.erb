@@ -9,7 +9,7 @@
 </form>
 <% end %>
 
-<% if current_user %>
+<% if logged_in? %>
 <% if @add %>
 <form method='post' action='/adds/<%= @add.id %>'>
 <input type="hidden" name="_method" value="delete">
