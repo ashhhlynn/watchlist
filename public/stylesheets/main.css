@@ -4,11 +4,6 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    text-align: center;
-    align-content: center;
-    margin-right: auto;
-    margin-left: auto;
-
   }
 
   html, body {
@@ -16,8 +11,6 @@
     width: 100%;
     text-align: center;
     align-content: center;
-    margin-right: auto;
-    margin-left: auto;
   }
 
   /* --- Welcome Page Styles --- */
@@ -26,11 +19,6 @@
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
-    text-align: center;
-    align-content: center;
-    margin-right: auto;
-    margin-left: auto;
-
   }
 
   .wrapper {
@@ -41,10 +29,6 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
-    text-align: center;
-    align-content: center;
-    margin-right: auto;
-    margin-left: auto;
   }
 
   h1 {
@@ -69,12 +53,12 @@
 
   p {
     margin-bottom: 18px;
-    text-align: center;
+   
   }
 
   .main {
     overflow: hidden;
-    text-align: center;
+ 
   }
 
   .content {
@@ -94,19 +78,11 @@
     font-size: 14px;
   }
 
-  .branding {
-    clear: both;
-  }
-
-  footer.branding {
-    border-top: 2px solid #ccc;
-    margin-top: 20px;
-    padding-top: 20px;
-  }
 
 footer {
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   text-align: center;
   float: center;
 }
@@ -130,11 +106,6 @@ a {
     -webkit-box-shadow: none;
     box-shadow: none;
     width: auto;
-    text-align: center;
-    text-align: center;
-    align-content: center;
-    margin-right: auto;
-    margin-left: auto;
   }
 
   .content, .sidebar {
