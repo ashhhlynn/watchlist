@@ -38,7 +38,7 @@ end
 
 get '/watchings/:id/edit' do
     @watching = Watching.find_by(id: params[:id])
-    if current_user && @watching.creator_id == current_user.id
+    if current_user && @watching && @watching.creator_id == current_user.id
     erb :'watchings/edit'
     else 
     redirect '/watchings'
