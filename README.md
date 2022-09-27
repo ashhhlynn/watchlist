@@ -1,13 +1,13 @@
 # Watchlist 
 
-A user can sign up and login (and edit their name), create, read, update, or delete new movies or TV shows, and add or remove them from their personal watchlist. 
-
+A user can create, read, update, or delete movies and TV shows, and add or remove them from their personal watchlist. 
 
 ## Install Instructions
 
 To use this app, please follow these steps:
 
-Just clone, cd watchlist, and run: 'bundle install', 'rake db:migrate', 'shotgun'
+Clone and cd watchlist
+run: 'bundle install', 'rake db:migrate', 'shotgun'
 
 ## Contributing
 
